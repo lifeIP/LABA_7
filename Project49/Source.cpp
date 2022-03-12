@@ -10,7 +10,7 @@ void findANDreplace(char str[]);
 
 int main() {
 	setlocale(LC_ALL, "RUS");
-	char str[] =  "Привет Мир Иди на";
+	char str[] =  "Привет Мир Нахуй Ты нужен";
 
 	findANDreplace(str);
 }
@@ -20,14 +20,20 @@ void findANDreplace(char str[]) {
 	short i = 0;
 	short ii = strlen(str);
 	char str1[250];
+	short addres = 0;
 	for (; i < ii - 1;) {
 		strncpy(str1, i + str, 50);
 		short iii = strcspn(str1, " ");
-		if (iii > ii) break;
+		
 		i = i+iii+1;
-		cout << str1<<endl;
-
+		if (static_cast<int>('А') <= static_cast<int>(str[i]) && static_cast<int>('Я') >= static_cast<int>(str[i])) {
+			if (i > ii) break;
+			addres = i;
+		}
 	}
+	cout << addres << endl;
+	cout << str[addres];
+	
 
 
 	//	strncpy(str1, i + str, 50);
@@ -37,6 +43,6 @@ void findANDreplace(char str[]) {
 //
 	//	cout << str1<<endl;
 	//}
-	cout << strlen(str);
+	//cout << strlen(str);
 	
 }
