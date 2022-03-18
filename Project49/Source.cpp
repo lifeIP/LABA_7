@@ -22,7 +22,7 @@ int main()
 	cout << res << endl;
 	char* str1 = new char[100];
 	char* str2 = new char[110];
-	strcpy(str1, "Привет мир Почему!");
+	strcpy(str1, "Привет мир Почему прикол!");
 	findANDreplace(str1, str2);
 	cout << str1 << endl;
 	cout << str2 << endl;
@@ -36,9 +36,7 @@ void convert(float y, char* str)
 }
 
 void findANDreplace(char* str_l, char* resault_l) {
-	for (int i = 0; i < strlen(resault_l); i++) {
-		resault_l[i] = 0;
-	}
+	memset(resault_l, 0, sizeof(char) * 100);
 	
 	char str[250] = {};
 	for (short i = 0; i < strlen(str_l); i++) {
@@ -72,10 +70,9 @@ void findANDreplace(char* str_l, char* resault_l) {
 	strcat(end_resault, addstr);
 	strncpy(str1, b+str, 50);
 	strcat(end_resault, str1);
+
 	for (int i = 0; i < strlen(end_resault); i++)
 	{
-		resault_l[i] = str[i];
+		resault_l[i] = end_resault[i];
 	}
-	
-
 }
