@@ -5,18 +5,24 @@
 
 using namespace std;
 
-void findANDreplace(char str[]);
+void findANDreplace(char str[], char resault[]);
 
 
 int main() {
 	setlocale(LC_ALL, "RUS");
-	char str[] =  "Привет Мир Нахуй Ты нужен";
-
-	findANDreplace(str);
+	char str[] =  "Привет Мир.";
+	char res[250] = {};
+	findANDreplace(str,res);
+	cout << res;
 }
 
 
-void findANDreplace(char str[]) {
+
+
+
+
+
+void findANDreplace(char str[], char resault[]) {
 	short i = 0;
 	short ii = strlen(str);
 	char str1[250];
@@ -38,28 +44,12 @@ void findANDreplace(char str[]) {
 	short iii_p = strcspn(str2, " ");
 	short b = addres + iii_p;
 	short a = addres;
-	cout << str[a];
-	cout << str[addres+iii_p] << endl;
+
 	char end_resault[250] = {};
 	char addstr[] = { "Кукушечка" };
 	strncpy(end_resault, str, a);
 	strcat(end_resault, addstr);
 	strncpy(str1, b+str, 50);
 	strcat(end_resault, str1);
-
-	cout << end_resault;
-
-
-	
-
-
-	//	strncpy(str1, i + str, 50);
-	//	short ii = strcspn(str, " ");
-	//	i += ii+1;
-	//	cout << i <<endl;
-//
-	//	cout << str1<<endl;
-	//}
-	//cout << strlen(str);
-	
+	strcat(resault, end_resault);
 }
